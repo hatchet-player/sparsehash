@@ -12,7 +12,7 @@
 #---------------------------------------------------
 project(
     'sparsehash',
-    ['c'],
+    ['c', 'cpp'],
     default_options : [
         'cpp_std=c++11',
         'warning_level=3',
@@ -29,11 +29,11 @@ sys_name = host_machine.system().to_lower()
 
 # init compiler 
 #---------------------------------------------------
-cpp = meson.get_compiler('c')
+cpp = meson.get_compiler('cpp')
 
 
-add_project_arguments(get_option('cflags'), language : 'c')
-add_project_link_arguments(get_option('ldflags'), language: 'c')
+add_project_arguments(get_option('cxxflags'), language : 'cpp')
+add_project_link_arguments(get_option('ldflags'), language: 'cpp')
 
 qt5 = import('qt5')
 cmake = import('cmake')

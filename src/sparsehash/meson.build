@@ -1,26 +1,18 @@
-# extra build file
+# sparsetable_unit_test build file
+#========================================================================
+
+sparsehash_inc = sparsehash_inc
+sparsehash_dir = meson.current_source_dir()
+
+
+# src
 #========================================================================
 
 
-extra_dir = meson.current_source_dir()
+sparsehash_src = files()
 
-# generate headers
-#========================================================================
-
-
-# build config.h
-#---------------------------------------------------
-config_h = configure_file(
-    input : 'config.h.in',
-    output : 'config.h',
-    configuration : config_h)
-
-
-# install headers
-#---------------------------------------------------
-install_headers(
-    config_h,
-    install_dir : join_paths(includedir, 'sparsehash'))
+# sparsetable_unit_test_h = files(
+#     join_paths(sparsetable_unit_test_dir, 'TestDatabase.h'))
 
 
 # include directories
@@ -28,9 +20,10 @@ install_headers(
 
 # add subdirs
 #---------------------------------------------------
-extra_dirs = []
+sparsehash_dirs = [
+    'internal']
 
-foreach dir : extra_dirs
+foreach dir : sparsehash_dirs
     subdir(dir)
 endforeach
 
@@ -38,3 +31,8 @@ endforeach
 # add directoreies to inc
 #---------------------------------------------------
 sparsehash_inc += include_directories('.')
+
+
+# build
+#========================================================================
+

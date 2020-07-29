@@ -6,14 +6,8 @@ sparsehash_inc += include_directories('.')
 
 
 src_dirs = [
-    'libhatchet',
-    'libhatchet-widgets',
-    'libhatchet-playdarapi',
-    # 'accounts',
-    # 'infoplugins',
-    'viewpages',
-    'hatchet'
-]
+    'google',
+    'sparsehash']
 
 
 if (get_option('with_tests'))
