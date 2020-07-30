@@ -2,7 +2,7 @@
 #============================================================================
 
 
-sparsehash_inc += include_directories('.')
+project_inc += include_directories('.')
 
 
 src_dirs = [

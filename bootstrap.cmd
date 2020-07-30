@@ -29,6 +29,7 @@ REM set CC=clang-cl
 REM set CXX=clang-cl
 meson setup build ^
     %meson_vars% ^
+    -Ddefault_library=static ^
     -Dcmake_prefix_path="%cmake_path%" ^
     -Dprefix="%prefix%"
 

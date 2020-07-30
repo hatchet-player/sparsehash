@@ -9,35 +9,30 @@ sparsehash_internal_dir = meson.current_source_dir()
 
 sparsehash_src = files()
 
-# sparsehash_h = files(
-#     join_paths(sparsehash_internal_dir, 'densehashtable.h'))
+sparsehash_internal_h = files(
+    join_paths(sparsehash_internal_dir, 'densehashtable.h'),
+    join_paths(sparsehash_internal_dir, 'hashtable-common.h'),
+    join_paths(sparsehash_internal_dir, 'libc_allocator_with_realloc.h'),
+    join_paths(sparsehash_internal_dir, 'sparsehashtable.h'))
+
+# add sparseconfig.h
+#---------------------------------------------------
+sparsehash_internal_h += configure_file(
+    input : sparseconfig_h,
+    output : 'sparseconfig.h',
+    copy : true)
+
+# install headers
+#---------------------------------------------------
+install_headers(
+    sparsehash_internal_h,
+    install_dir : join_paths(includedir, 'sparsehash', 'internal'))
 
 
 # include directories
 #========================================================================
 
-# add subdirs
-#---------------------------------------------------
-sparsehash_dirs = [
-    'sparseconfig_h']
-
-foreach dir : sparsehash_dirs
-    subdir(dir)
-endforeach
-
-
-# add directoreies to inc
+# add directoreies to internal
 #---------------------------------------------------
 sparsehash_inc += include_directories('.')
-
-# build sparseconfig.h
-#---------------------------------------------------
-sparseconfig_h = configure_file(
-    input : 'sparseconfig.h.in',
-    output : 'sparseconfig.h',
-    configuration : sparseconfig_h)
-
-
-# build
-#========================================================================
 

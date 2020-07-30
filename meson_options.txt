@@ -17,6 +17,7 @@ option(
     'cxxflags',
     type : 'array',
     value : [
+        '-std=c++14',
         '-Wdeprecated', 
         '-Wno-pedantic',
         '-Wno-non-virtual-dtor',
@@ -32,5 +33,5 @@ option(
 option(
     'with_tests',
     type : 'boolean',
-    value : 'true',
+    value : 'false',
     description : 'Build hatchet with tests')

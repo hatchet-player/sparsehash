@@ -20,10 +20,6 @@ sparsetable_unit_test_src = files(
     join_paths(sparsetable_unit_test_dir, 'sparsetable_unit_test.cc'))
 
 
-# sparsetable_unit_test_h = files(
-#     join_paths(sparsetable_unit_test_dir, 'TestDatabase.h'))
-
-
 # include directories
 #========================================================================
 
@@ -44,7 +40,7 @@ sparsetable_unit_test_link_args = []
 sparsetable_unit_test_cxx_args = []
 
 
-# build library
+# build test
 #---------------------------------------------------
 sparsetable_unit_test_bin = executable(
     'sparsetable-unit-test',

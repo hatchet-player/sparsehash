@@ -1,7 +1,7 @@
-# sparsetable_unit_test build file
+# sparsehash build file
 #========================================================================
 
-sparsehash_inc = sparsehash_inc
+sparsehash_inc = project_inc
 sparsehash_dir = meson.current_source_dir()
 
 
@@ -11,8 +11,8 @@ sparsehash_dir = meson.current_source_dir()
 
 sparsehash_src = files()
 
-# sparsetable_unit_test_h = files(
-#     join_paths(sparsetable_unit_test_dir, 'TestDatabase.h'))
+sparsehash_h = files(
+    join_paths(sparsehash_dir, 'template_util.h'))
 
 
 # include directories

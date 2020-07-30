@@ -1,34 +1,16 @@
 # extra build file
 #========================================================================
 
-
 extra_dir = meson.current_source_dir()
-
-# generate headers
-#========================================================================
-
-
-# build config.h
-#---------------------------------------------------
-config_h = configure_file(
-    input : 'config.h.in',
-    output : 'config.h',
-    configuration : config_h)
-
-
-# install headers
-#---------------------------------------------------
-install_headers(
-    config_h,
-    install_dir : join_paths(includedir, 'sparsehash'))
-
 
 # include directories
 #========================================================================
 
 # add subdirs
 #---------------------------------------------------
-extra_dirs = []
+extra_dirs = [
+    'config_h',
+    'sparseconfig_h']
 
 foreach dir : extra_dirs
     subdir(dir)
@@ -37,4 +19,4 @@ endforeach
 
 # add directoreies to inc
 #---------------------------------------------------
-sparsehash_inc += include_directories('.')
+project_inc += include_directories('.')
